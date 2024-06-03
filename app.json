@@ -1,0 +1,36 @@
+{
+  "expo": {
+    "name": "application",
+    "slug": "application",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/loading.gif",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/logo.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.teste.maps",
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyCZpk_lupp1g0tOK45m4OwAtyO3jWW6fjQ"
+        }
+      }
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      "expo-font"
+    ]
+  }
+}
