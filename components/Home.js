@@ -85,7 +85,7 @@ export default function Home() {
         <Text style={styles.description}>
           Nosso sistema tem como objetivo principal combater a pesca ilegal e promover a proteção dos nossos amigos de barbatana, proporcionando uma plataforma eficiente para o registro de denúncias, monitoramento das fiscalizações e análise de dados.
         </Text>
-        <Text style={[styles.title, { marginBottom: 40, marginTop: 20 }]}>Ajude a Proteger as Barbatas!</Text>
+        <Text style={[styles.title, { marginBottom: 40, marginTop: 20 }]}>Ajude a Proteger as Barbatanas!</Text>
       </View>
     </ScrollView>
   );
