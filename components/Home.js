@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { ScrollView, Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
@@ -11,6 +11,7 @@ import Carrossel5 from '../assets/carrossel5.png';
 
 export default function Home() {
   const navigation = useNavigation();
+  const scrollViewRef = useRef();
 
   const navigateToHome = () => {
     navigation.navigate('Home');
@@ -32,8 +33,12 @@ export default function Home() {
     navigation.navigate('Perfil');
   };
 
+  const scrollToSobreNos = () => {
+    scrollViewRef.current.scrollTo({ y: 850, animated: true });
+  };
+
   return (
-    <ScrollView style={styles.scroll}>
+    <ScrollView style={styles.scroll} ref={scrollViewRef}>
       <View>
         <Image source={Capa} style={styles.capa} resizeMode='cover' />
       </View>
@@ -44,7 +49,7 @@ export default function Home() {
         </Text>
       </View>
       <ScrollView style={styles.carrossel} horizontal={true} showsHorizontalScrollIndicator={false}>
-        <TouchableOpacity onPress={navigateToHome}>
+        <TouchableOpacity onPress={scrollToSobreNos}>
           <View>
             <Image source={Carrossel1} style={styles.imgCarrossel} resizeMode='cover' />
           </View>
@@ -70,6 +75,18 @@ export default function Home() {
           </View>
         </TouchableOpacity>
       </ScrollView>
+      <View style={styles.sobreNos}>
+        <Text style={styles.description}>
+          O nosso projeto visa combater a pesca ilegal por meio do registro de denúncias utilizando a API do Google Maps, juntamente com um sistema de monitoramento em dashboards das fiscalizações e ocorrências. Os usuários podem reportar atividades suspeitas fornecendo informações de localização precisa.
+        </Text>
+        <Text style={styles.description}>
+          As autoridades responsáveis têm acesso a dashboards em tempo real, permitindo uma resposta rápida e eficiente. Além disso, o dashboard utilizado pelas autoridades mostra as operações e regiões fiscalizadas no mapa, oferecendo uma visão abrangente das áreas de maior atividade suspeita e permitindo uma alocação mais eficiente dos recursos de fiscalização. A análise dos dados coletados pode identificar padrões de atividades ilegais, áreas de maior incidência e comportamentos suspeitos.
+        </Text>
+        <Text style={styles.description}>
+          Nosso sistema tem como objetivo principal combater a pesca ilegal e promover a proteção dos nossos amigos de barbatana, proporcionando uma plataforma eficiente para o registro de denúncias, monitoramento das fiscalizações e análise de dados.
+        </Text>
+        <Text style={[styles.title, { marginBottom: 40, marginTop: 20 }]}>Ajude a Proteger as Barbatas!</Text>
+      </View>
     </ScrollView>
   );
 }
@@ -92,7 +109,7 @@ const styles = StyleSheet.create({
   description: {
     fontSize: 16,
     fontWeight: '500',
-    marginVertical: 20,
+    marginVertical: 10,
     color: 'white'
   },
   imgCarrossel: {
@@ -102,6 +119,10 @@ const styles = StyleSheet.create({
     borderRadius: 10
   },
   carrossel: {
-    marginBottom: 40
+    marginBottom: 30,
+    marginTop: 30
+  },
+  sobreNos:{
+    marginHorizontal: 30
   }
 });
