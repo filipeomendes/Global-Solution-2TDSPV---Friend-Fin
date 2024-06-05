@@ -10,10 +10,11 @@ export default function Mapa() {
   const navigation = useNavigation();
 
   return (
-    <View style={{ flex: 1 }}>
+    <View style={{  flex: 1,
+                    backgroundColor: "#07244a" }}>
       <MapView
         ref={mapaRef}
-        style={{ flex: 1 }}
+        style={{ flex: 1, margin: 10 }}
         initialCamera={{
           center: {
             latitude: -18.769,

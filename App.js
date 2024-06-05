@@ -8,10 +8,12 @@ import LogoImg from './assets/logo.png'
 import MenuIcon from './assets/onda.png'
 import HomeIcon from './assets/home.png'
 import DenunciaIcon from './assets/denuncia.png'
+import UserImg from './assets/user.png'
 
 import HomeStack from './components/HomeStack';
 import Mapa from './components/Mapa';
 import Perfil from './components/Perfil';
+import Login from './components/Login'
 import Tubaroes from './components/Tubaroes';
 import Pesca from './components/Pesca';
 
@@ -98,11 +100,20 @@ export default function App() {
               }}
             />
             <Tab.Screen
-              name="Mapa"
+              name="Denúncia"
               component={Mapa}
               options={{
                 tabBarIcon: ({ color, size }) => (
                   <Image source={DenunciaIcon} style={{ width: size, height: size, tintColor: color }}/>
+                ),
+              }}
+            />
+            <Tab.Screen
+              name="Login"
+              component={Login}
+              options={{
+                tabBarIcon: ({ color, size }) => (
+                  <Image source={UserImg} style={{ width: size, height: size, tintColor: color }}/>
                 ),
               }}
             />
@@ -154,13 +165,15 @@ const styles = StyleSheet.create({
   drawer: {
     flex: 1,
     backgroundColor: '#2366b8',
+    paddingTop: 30
   },
   menuItem: {
-    marginLeft: 20
+    marginLeft: 80,
   },
   menuItemTexto: {
     color: '#FFF',
-    fontSize: 18,
-    marginTop: 50
+    fontSize: 20,
+    marginTop: 30,
+    fontWeight: 'bold',
   },
 });

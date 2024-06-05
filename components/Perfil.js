@@ -1,43 +1,82 @@
-import { ScrollView, Image, StyleSheet, Text, View } from 'react-native';
-
-import Capa from '../assets/capa.png'
+import React, { useState, useEffect } from 'react';
+import { View, Text, FlatList, StyleSheet } from 'react-native';
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Perfil() {
+  const [userName, setUserName] = useState("");
+  const [denuncias, setDenuncias] = useState([]);
+
+  const fetchDenuncias = async () => {
+    try {
+      const response = await axios.get('https://5c089b79-e20e-4a70-b7ef-e5aef70a01b1-00-3olts4zw3pnvr.janeway.replit.dev/denuncias');
+      setDenuncias(response.data);
+    } catch (error) {
+      console.error("Erro ao buscar as denúncias:", error);
+    }
+  };
+
+  const fetchUserName = async () => {
+    try {
+      const usuario = await AsyncStorage.getItem('usuario');
+      if (usuario) {
+        const response = await axios.get('https://32d84d8e-3f03-4d8e-994b-0d8e7180ce6c-00-351tymd2tp65g.riker.replit.dev/usuario', {
+          params: { usuario }
+        });
+        setUserName(response.data.nome);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar o nome do usuário:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchDenuncias();
+    fetchUserName();
+  }, []);
 
   return (
-    <ScrollView style={styles.scroll}>
-      <View>
-        <Image source={Capa} style={styles.capa} resizeMode='cover' />
-      </View>
-      <View style={{ marginHorizontal: 30 }}>
-        <Text style={styles.title}>Conheça o Projeto!</Text>
-        <Text style={styles.description}>
-          Hoje cerca de 100 MILHÕES de tubarões são mortos por ano, em maioria para a pesca, gerando um desequilíbrio ambiental enorme. A nossa solução visa auxiliar os meios de fiscalização através de denúncias registradas de forma rápida e prática. Nossos usuários poderão reportar locais onde a carne de tubarão está sendo comercializada e áreas onde a pesca ilegal está ocorrendo. Vamos ajudar a conscientizar o público sobre a importância da preservação dos tubarões, fornecendo informações sobre várias espécies e seu papel nos ecossistemas.
-        </Text>
-      </View>
-    </ScrollView>
+    <View style={styles.container}>
+      <Text style={styles.texto}>Olá, {userName}</Text>
+      <Text style={styles.subtitulo}>Minhas denúncias:</Text>
+      <FlatList
+        data={denuncias}
+        keyExtractor={(item, index) => index.toString()}
+        renderItem={({ item }) => (
+          <View style={styles.item}>
+            <Text>Latitude: {item.latitude}</Text>
+            <Text>Longitude: {item.longitude}</Text>
+            <Text>Descrição: {item.descricao}</Text>
+          </View>
+        )}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
-  capa: {
-    width: '100%',
-    height: 221,
-  },
-  scroll: {
+  container: {
     flex: 1,
+    padding: 16,
+    justifyContent: 'center',
     backgroundColor: "#07244a"
   },
-  title: {
-    fontSize: 30,
-    fontWeight: '700',
-    textAlign: 'center',
-    color: 'white'
+  texto: {
+    fontSize: 24,
+    marginBottom: 16,
+    color: '#FFF',
+    fontWeight: 'bold'
   },
-  description: {
-    fontSize: 16,
-    fontWeight: '500',
-    marginVertical: 20,
-    color: 'white'
+  subtitulo: {
+    fontSize: 20,
+    marginBottom: 8,
+    color: '#FFF',
+    fontWeight: 'bold'
   },
+  item: {
+    backgroundColor: '#fff',
+    padding: 16,
+    marginBottom: 8,
+    borderRadius: 4
+  }
 });

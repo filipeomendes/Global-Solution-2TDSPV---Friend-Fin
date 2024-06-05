@@ -29,8 +29,8 @@ export default function Home() {
     navigation.navigate('Mapa');
   };
 
-  const navigateToPerfil = () => {
-    navigation.navigate('Perfil');
+  const navigateToLogin = () => {
+    navigation.navigate('Login');
   };
 
   const scrollToSobreNos = () => {
@@ -69,7 +69,7 @@ export default function Home() {
             <Image source={Carrossel4} style={styles.imgCarrossel} resizeMode='cover' />
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={navigateToPerfil}>
+        <TouchableOpacity onPress={navigateToLogin}>
           <View>
             <Image source={Carrossel5} style={styles.imgCarrossel} resizeMode='cover' />
           </View>
