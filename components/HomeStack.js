@@ -5,6 +5,7 @@ import Tubaroes from './Tubaroes';
 import Pesca from './Pesca';
 import Mapa from './Mapa';
 import Perfil from './Perfil';
+import Denuncia from './Denuncia'
 
 const Stack = createStackNavigator();
 
@@ -16,6 +17,7 @@ export default function HomeStack() {
       <Stack.Screen name="Pesca" component={Pesca} />
       <Stack.Screen name="Mapa" component={Mapa} />
       <Stack.Screen name="Perfil" component={Perfil} />
+      <Stack.Screen name="Denuncia" component={Denuncia} />
     </Stack.Navigator>
   );
 }
