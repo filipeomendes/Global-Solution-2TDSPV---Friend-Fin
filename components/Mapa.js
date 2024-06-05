@@ -1,4 +1,4 @@
-import { Button, StyleSheet, Text, View } from 'react-native';
+import { Button, StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import MapView, { Marker } from 'react-native-maps';
 import { useState, useRef } from 'react';
 import { useNavigation } from '@react-navigation/native';
@@ -47,14 +47,16 @@ export default function Mapa() {
       </MapView>
       {marcador && (
         <View style={styles.buttonContainer}>
-          <Button
-            title="Denunciar"
-            onPress={() => navigation.navigate('Denuncia', { latitude: marcador.latitude, longitude: marcador.longitude })}
-          />
-        </View>
-      )}
-    </View>
-  );
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => navigation.navigate('Denuncia', { latitude: marcador.latitude, longitude: marcador.longitude })}
+        >
+          <Text style={styles.buttonText}>Denunciar</Text>
+        </TouchableOpacity>
+      </View>
+    )}
+  </View>
+);
 }
 
 const styles = StyleSheet.create({
@@ -64,5 +66,18 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     alignItems: 'center',
+  },
+  button: {
+    backgroundColor: '#ff6347',
+    paddingVertical: 15,
+    paddingHorizontal: 30,
+    borderRadius: 10,
+    width: '80%',
+    alignItems: 'center',
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#fff',
+    fontWeight: 'bold',
   },
 });
