@@ -81,7 +81,16 @@ export default function Tubaroes() {
           <View style={styles.imageContainer}>
             <Image source={Branco} style={styles.imgSharks} resizeMode='cover'/>
           </View>
-          <Text style={[styles.description, { marginBottom: 30 }]}>E não poderiamos deixar de mencionar o rei dos mares, o tubarão-branco (Carcharodon carcharias). É uma das espécies de tubarões mais emblemáticas e amplamente reconhecidas. Conhecido por sua impressionante aparência e reputação como predador de topo dos oceanos, o tubarão-branco desempenha um papel crucial nos ecossistemas marinhos. Apesar de sua notoriedade, o tubarão-branco enfrenta sérias ameaças à sua sobrevivência. Classificado como uma espécie vulnerável à extinção pela União Internacional para a Conservação da Natureza (IUCN), o tubarão-branco é afetado por uma série de fatores que contribuem para seu risco de extinção. Entre as principais causas de vulnerabilidade do tubarão-branco estão a sobrepesca e a captura acidental em redes de pesca, a degradação do habitat marinho devido à atividade humana, as mudanças climáticas e a perda de presas devido à pesca excessiva de suas fontes alimentares. Além disso, o tubarão-branco é frequentemente alvo de pesca recreativa e comercial, muitas vezes visando suas barbatanas e outros produtos derivados. </Text>
+          <Text style={styles.description}>E não poderiamos deixar de mencionar o rei dos mares, o tubarão-branco (Carcharodon carcharias). É uma das espécies de tubarões mais emblemáticas e amplamente reconhecidas. Conhecido por sua impressionante aparência e reputação como predador de topo dos oceanos, o tubarão-branco desempenha um papel crucial nos ecossistemas marinhos. Apesar de sua notoriedade, o tubarão-branco enfrenta sérias ameaças à sua sobrevivência. Classificado como uma espécie vulnerável à extinção pela União Internacional para a Conservação da Natureza (IUCN), o tubarão-branco é afetado por uma série de fatores que contribuem para seu risco de extinção. Entre as principais causas de vulnerabilidade do tubarão-branco estão a sobrepesca e a captura acidental em redes de pesca, a degradação do habitat marinho devido à atividade humana, as mudanças climáticas e a perda de presas devido à pesca excessiva de suas fontes alimentares. Além disso, o tubarão-branco é frequentemente alvo de pesca recreativa e comercial, muitas vezes visando suas barbatanas e outros produtos derivados. </Text>
+        </View>
+        <View style={styles.separador} />
+        <View style={[styles.curiosidade, { marginBottom: 30 }]}>
+          <Text style={styles.curiosidadeText1}>
+          Essas são apenas algumas espécies de tubarões ameaçados.
+          </Text>
+          <Text style={styles.curiosidadeText2}>
+          Confira essas e muitas outras em no site oficial da IUCN (https://www.iucnredlist.org)
+          </Text>
         </View>
       </View>
     </ScrollView>
