@@ -69,7 +69,7 @@ export default function Tubaroes() {
           <View style={styles.imageContainer}>
             <Image source={TubaraoLixa} style={styles.imgSharks} resizeMode='cover'/>
           </View>
-          <Text style={styles.description}>Os tubarões-martelo são uma família de peixes cartilaginosos conhecidos por sua distinta cabeça em forma de "T", chamada cefalofólio. Esse formato lhes confere uma visão panorâmica, permitindo detectar presas e ameaças com maior eficácia. Vivem em águas tropicais e temperadas ao redor do mundo, e suas espécies variam em tamanho, desde o pequeno tubarão-martelo-bonnethead, que mede cerca de um metro, até o grande tubarão-martelo-gigante, que pode atingir mais de seis metros de comprimento. Eles se alimentam de uma variedade de presas, incluindo peixes, lulas e crustáceos, e são conhecidos por suas habilidades de navegação e migração. Apesar de serem temidos por muitos, os tubarões-martelo raramente representam uma ameaça para os humanos. No entanto, várias espécies estão em perigo devido à pesca excessiva e à destruição de seus habitats. </Text>
+          <Text style={styles.description}>O tubarão-lixa (Ginglymostoma cirratum) é uma espécie de tubarão tropical conhecida pela pele áspera e por ser noturna. Não está ameaçado de extinção no momento, classificado como "Menos Preocupante" pela IUCN. Alimenta-se de crustáceos e moluscos, e dá à luz ninhadas de até 30 filhotes. Importante para o equilíbrio dos ecossistemas marinhos, sua conservação é vital para a saúde dos oceanos.</Text>
           <View style={styles.separador} />
           <Text style={styles.especiesTubaroes}>Tubarão-Tigre</Text>
           <View style={styles.imageContainer}>
